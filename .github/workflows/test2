@@ -1,0 +1,33 @@
+name: Minecraft Server
+
+on:
+  workflow_dispatch:
+
+jobs:
+  run-server:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check if Actions is working
+        run: |
+          echo "✅ Step 1: Actions working!"
+
+      - name: Install Java and wget
+        run: |
+          echo "🟡 Step 2: Installing Java and wget..."
+          sudo apt-get update
+          sudo apt-get install -y openjdk-17-jre-headless wget
+
+      - name: Set up Minecraft Server
+        run: |
+          echo "🟡 Step 3: Downloading server..."
+          mkdir server
+          cd server
+          wget https://api.papermc.io/v2/projects/paper/versions/1.20.1/builds/103/downloads/paper-1.20.1-103.jar -O server.jar
+          echo "eula=true" > eula.txt
+
+      - name: Run Minecraft Server
+        run: |
+          echo "🟢 Step 4: Starting server..."
+          cd server
+          java -Xms1G -Xmx2G -jar server.jar nogui
