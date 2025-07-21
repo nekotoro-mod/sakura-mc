@@ -1,4 +1,4 @@
-name: Minecraft Server
+name: Minecraft server log test
 
 on:
   workflow_dispatch:
