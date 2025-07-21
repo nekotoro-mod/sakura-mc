@@ -8,10 +8,10 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-     - name: Install Java
+     - name: Install Java and wget
        run: |
          sudo apt update
-         sudo apt install -y openjdk-17-jre-headless
+         sudo apt install -y openjdk-17-jre-headless wget
 
      - name: Download Spigot Server
        run: |
