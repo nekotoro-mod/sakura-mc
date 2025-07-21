@@ -23,4 +23,4 @@ jobs:
      - name: Run Minecraft Server
        run: |
          cd server
-         java -Xms1G - Xm2G -jar server.jar nogui
+         java -Xms1G - Xmx2G -jar server.jar nogui
